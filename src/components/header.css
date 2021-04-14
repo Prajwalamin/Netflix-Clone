@@ -1,16 +1,32 @@
 .header {
-  background-color: black;
-  bottom: 40px;
+  position: fixed;
+  height: 40px;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 20px;
   color: white;
   display: flex;
   justify-content: space-between;
+  transition: all 0.5s ease-in;
+}
+
+.header__dark {
+  background-color: #111;
 }
 
 .header__logo {
-  margin-left: 10px;
-  width: 150px;
-  height: 40px;
-  margin-top: 10px;
-  padding: 20px;
+  position: fixed;
+  left: 30px;
+  object-fit: contain;
+  width: 120px;
   margin-bottom: 10px;
+}
+
+.header__avatar {
+  position: fixed;
+  right: 30px;
+  font-weight: 500;
+  top: 20px;
+  font-size: 25px;
 }

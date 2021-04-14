@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from './axios'
 import requests from './request'
+import './banner.css'
 
 const base_URL = "https://image.tmdb.org/t/p/original"
 
-function Banner({title, desc}) {
+function Banner() {
 
     const [movies, setMovies] = useState([])
 
@@ -16,27 +17,36 @@ function Banner({title, desc}) {
                     Math.floor(Math.random() * request.data.results.length -1)
                 ]
             )
-            console.log(movies)
+            return request
         }
         fetchData()
-    })
+    },[])
+
+    function truncate(str,n){
+        return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+    }
 
     return (
         <header className="banner"
                 style={{
-                    backgroundSize: 'cover',
-                    backgroundImage: `url(${base_URL}${movies?.backdrop__path})`
+                    backgroundSize: "cover",
+                    backgroundImage: `url(${base_URL}${movies?.backdrop_path})`,
+                    backgroundPosition: "center center",
                 }}
             >
 
             <div className="banner__content">
 
-            <h2> {movies?.title || movies?.name || movies?.original_name} </h2>
-            <div className="buttons">
+            <h2 className="banner__title"> {movies?.title || movies?.name || movies?.original_name} </h2>
+            <div className="banner__buttons">
             <button> Play </button>
             <button> Add </button>
             </div>
-            <p> {desc} </p>
+            <p className="banner__desc"> {truncate(movies?.overview, 150)} </p>
+            
+            </div>
+
+            <div className="banner__fadebottom">
 
             </div>
         </header>

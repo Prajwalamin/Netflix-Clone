@@ -1,17 +1,13 @@
 .row {
   margin-left: 20px;
+  margin-top: 10px;
+  color: white;
 }
 
 .row__posters {
   display: flex;
   overflow-y: hidden;
   padding: 20px;
-}
-
-.row__posterlarge {
-  height: 200px;
-  margin-right: 10px;
-  transition: transform 450ms;
 }
 
 .row__posters::-webkit-scrollbar {
@@ -24,6 +20,11 @@
   max-height: 100px;
   margin-right: 10px;
   transition: transform 450ms;
+}
+
+.row__posterlarge {
+  max-height: 250px;
+  margin-right: 10px;
 }
 
 .row__poster:hover {
